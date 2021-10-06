@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+    <head>
+        <title>Arithmetic Computing</title>
+    </head>
+
+<h2>"Sumanth raja Ghanta" Computes</h2>
+
+<form>
+    <label for="base">Enter a base</label>
+    <input type ="number" id="base" value=10> <br>
+
+    <label for="exponent">Enter a Exponent</label>
+    <input type ="number" id="exponent" autofocus><br><br>
+
+    <input type="button" onclick="powers()" value="compute"><br><br>
+</form>
+
+<form>
+    <input type="radio" id="radio_1" name="arithmetic" value="plus" onclick="processRadio()">  
+       
+    <label for="radio_1">+</label></br>
+  
+    <input type="radio" id="radio_2" name="arithmetic" value="minus" onclick="processRadio()">
+
+    <label for="radio">-</label></br>
+  
+    <input type="radio" id="radio_3" name="arithmetic"  value="times" onclick="processRadio()">
+    <label for="radio_3">*</label></br>
+
+    <input type="radio" id="radio_4" name="arithmetic" onclick="processRadio()" value="divide">
+    <label for="radio_4">/</label>
+
+  </form>
+<div id="radio_result"></div>
+
+<div id="result"></div>
+
+<script> 
+
+function powers(){
+   
+    let result= " "
+    console.log("Getting form values")
+     baseValue = document.getElementById("base").value
+     expoValue = document.getElementById("expo").value
+     resultDiv = document.getElementById("result")
+   
+    for(i=1;i<=expoValue;i++){
+        result =result+ Math.pow(baseValue,i)+ " "
+        resultDiv.innerHTML="powers of base are: "+ result
+            
+    }
+}
+
+ function processRadio(){
+    base_value = document.getElementById("base").value
+    expo_value = document.getElementById("expo").value
+    arithmetic_value =document.getElementsByName("arithmetic")
+    result_value=document.getElementById("radio_result")
+  
+    for(i = 0; i < arithmetic_value.length; i++) {
+        if(arithmetic_value[i].checked){
+            console.log(arithmetic_value[i].value)
+            if(arithmetic_value[i].value=="plus"){
+                let add = parseFloat(base_value)+parseFloat(expo_value)
+                result_value.innerHTML = "Result for " + base_value + " + " + expo_value + " is " + add
+            }
+            else if(arithmetic_value[i].value=="minus"){
+                let sub = base_value-expo_value
+                result_value.innerHTML = "Result for " + base_value + " - " + expo_value + " is " + sub
+            }
+            else if(arithmetic_value[i].value=="times"){
+                let mul = base_value*expo_value
+                result_value.innerHTML = "Result for " + base_value + " * " + expo_value + " is " + mul
+            }
+            else if(arithmetic_value[i].value=="divide"){
+                let div = base_value/expo_value
+                result_value.innerHTML = "Result for " + base_value + " / " + expo_value + " is " + div
+            }
+        }
+ }
+}
+</script>
+
+</body>
+</html> 
