@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+    <head>
+        <title>Pass page</title>
+    </head>
+        <h2>Pass phrase by Sumanth raja Ghanta</h2>
+
+<form>
+    <label for="secretphase">Enter the secret phrase </label>
+
+    <input type ="password" id="secretphase" value ="sumanth"> <br>
+
+    <label for="phrase">Enter a phrase </label>
+
+    <input type ="text" id="phrase"  autofocus> <br>
+
+    <input type="button" onclick="processPhrase()" value="Check the phrase"/>
+
+<div id="result"></div>
+<br><br>
+<div class="container">
+    <img src= "Images/tiger.jpg" id="leopard" alt="Leopard" height="200" width="200" onclick="newImage()">
+</div>
+
+<script> 
+
+var correct=0;
+var wrong=0;
+
+function processPhrase (){
+    spValue = document.getElementById("secretphase").value
+
+    phraseValue = document.getElementById("phrase").value
+
+    resultDiv = document.getElementById("result")
+    if(spValue==phraseValue){
+        alert("Access allowed");
+
+    correct=correct+1;
+    }
+     else{
+        alert("Access denied");
+        wrong=wrong+1;
+    }  
+    resultDiv.innerHTML="Correct count: "+correct+'<br>'+" Worng count: "+wrong;
+}
+var usingImage=1;
+    function newImage(){
+        Image=document.getElementById("leopard")
+        switch(usingImage){
+            case 1 : Image.src = "Images/nileCrocodile.jpg"
+                     usingImage =usingImage +1;
+                     break;
+            case 2 : Image.src = "Images/tiger.jpg"
+                     usingImage =usingImage +1;
+                     break; 
+            case 3 : Image.src = "images/pinscher.jpg"
+                     usingImage =usingImage +1;
+                     break;
+        }
+    }
+</script>
+</body>
+</html> 
