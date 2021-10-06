@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+    <head>
+        <title>Arithmetic Computation</title>
+    </head>
+
+<h2>"Muralidhar Reddy Kalla" computes</h2>
+
+<form>
+    <label for="base">Enter a base</label>
+    <input type ="number" id="base" value=10> <br><br>
+
+    <label for="expo">Enter an exponent </label>
+    <input type ="number" id="expo"  autofocus> <br><br>
+
+    <input type="button" onclick="powers()" value="compute"><br><br>
+</form>
+
+<form>
+    <input type="radio" id="radio_1" name="arithmetic" value="plus" onclick="processRadio()">  
+       
+    <label for="radio_1">+</label></br>
+  
+    <input type="radio" id="radio_2" name="arithmetic" value="minus" onclick="processRadio()">
+
+    <label for="radio">-</label></br>
+  
+    <input type="radio" id="radio_3" name="arithmetic"  value="times" onclick="processRadio()">
+    <label for="radio_3">*</label></br>
+
+    <input type="radio" id="radio_4" name="arithmetic" onclick="processRadio()" value="divide">
+    <label for="radio_4">/</label>
+
+  </form>
+<div id="radio_result"></div>
+
+<div id="result"></div>
+
+<script> 
+
+function powers(){
+   
+    let result= " "
+    console.log("Getting form values")
+     baseValue = document.getElementById("base").value
+     expoValue = document.getElementById("expo").value
+     resultDiv = document.getElementById("result")
+   
+    for(i=1;i<=expoValue;i++){
+        result =result+ Math.pow(baseValue,i)+ " "
+        resultDiv.innerHTML="powers of base are: "+ result
+            
+    }
+}
+</script>
+
+</body>
+</html>
